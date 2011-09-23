@@ -1,0 +1,45 @@
+﻿@model SignUpViewModel
+
+@{
+    ViewBag.Title = "Sign up";
+}
+
+<h2>Sign up</h2>
+
+@using (Html.BeginRouteForm("CreateUser")) {
+    @Html.ValidationSummary(true, "User sign up was unsuccessful. Please correct the errors and try again.")
+    <div>
+        <fieldset>
+            <legend>User Information</legend>
+
+            <div class="editor-label">
+                @Html.LabelFor(m => m.UserName)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(m => m.UserName)
+                @Html.ValidationMessageFor(m => m.UserName)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(m => m.Password)
+            </div>
+            <div class="editor-field">
+                @Html.PasswordFor(m => m.Password)
+                @Html.ValidationMessageFor(m => m.Password)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(m => m.ConfirmPassword)
+            </div>
+            <div class="editor-field">
+                @Html.PasswordFor(m => m.ConfirmPassword)
+                @Html.ValidationMessageFor(m => m.ConfirmPassword)
+            </div>
+
+            <p>
+                <input type="submit" value="Sign up" />
+            </p>
+        </fieldset>
+    </div>
+}
+

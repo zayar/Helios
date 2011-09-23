@@ -1,0 +1,36 @@
+﻿@model ChangePasswordViewModel
+
+@{
+    ViewBag.Title = "Change Password";
+}
+
+<h2>Change Password</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true, "Change password was unsuccessful. Please correct the errors and try again.")
+    <div>
+        <fieldset>
+            <legend>New Password Information</legend>
+
+            <div class="editor-label">
+                @Html.LabelFor(m => m.Password)
+            </div>
+            <div class="editor-field">
+                @Html.PasswordFor(m => m.Password)
+                @Html.ValidationMessageFor(m => m.Password)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(m => m.ConfirmPassword)
+            </div>
+            <div class="editor-field">
+                @Html.PasswordFor(m => m.ConfirmPassword)
+                @Html.ValidationMessageFor(m => m.ConfirmPassword)
+            </div>
+
+            <p>
+                <input type="submit" value="Submit" />
+            </p>
+        </fieldset>
+    </div>
+}
