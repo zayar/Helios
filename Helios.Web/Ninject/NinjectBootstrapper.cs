@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
-using Ninject;
 using Helios.Web.Infrastructure;
 using Helios.Web.Models;
+using Ninject;
 
 namespace Helios.Web.Ninject {
     public static class NinjectBootstrapper {        
