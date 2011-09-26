@@ -1,8 +1,10 @@
 [Oo]bj/
 [Bb]in/
+packages/
 *.suo
 *.user
 *.docstates
-packages/
 App_Data
 _ReSharper.*
+*.xap
+Helios.Web/Uploads/*.png
