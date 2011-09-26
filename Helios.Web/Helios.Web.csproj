@@ -17,6 +17,7 @@
     <UseIISExpress>true</UseIISExpress>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
+    <SilverlightApplicationList>{70E48A55-3878-4C83-BA30-636669EADBB4}|..\Helios.WaferMarker\Helios.WaferMarker.csproj|ClientBin|False</SilverlightApplicationList>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -68,6 +69,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SessionsController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="Controllers\WafersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -90,6 +92,7 @@
     <Compile Include="Infrastructure\UnitOfWorkAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ClientBin\Helios.WaferMarker.xap" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\jquery-1.6.3-vsdoc.js" />
@@ -99,6 +102,7 @@
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <None Include="ToEnable_BrowseWith_FeatureInVisualStudio.htm" />
+    <Content Include="Scripts\Silverlight.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -119,9 +123,11 @@
     <Content Include="Views\Users\New.cshtml" />
     <Content Include="Views\Sessions\New.cshtml" />
     <Content Include="Views\Sessions\Edit.cshtml" />
+    <Content Include="Views\Wafers\Marker.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Helpers\" />
+    <Folder Include="Uploads\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">

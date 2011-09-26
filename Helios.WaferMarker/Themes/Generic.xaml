@@ -1,0 +1,110 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:local="clr-namespace:Helios.WaferMarker"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d">
+
+    <Style TargetType="local:ColorRadioButton">
+    	<Setter Property="MinHeight" Value="20" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:ColorRadioButton">
+                    <Border x:Name="border" Background="White">
+                    	<VisualStateManager.VisualStateGroups>
+                    		<VisualStateGroup x:Name="Common">
+                    			<VisualState x:Name="Normal"/>
+                    			<VisualState x:Name="MouseOver">
+                    				<Storyboard>
+                    					<ColorAnimation Duration="0" To="#FF977D7D" Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)" Storyboard.TargetName="border" d:IsOptimized="True"/>
+                    				</Storyboard>
+                    			</VisualState>
+                    			<VisualState x:Name="Disabled"/>
+                    			<VisualState x:Name="Pressed"/>
+                    		</VisualStateGroup>
+                    		<VisualStateGroup x:Name="ValidationStates">
+                    			<VisualState x:Name="InvalidFocused"/>
+                    			<VisualState x:Name="Valid"/>
+                    			<VisualState x:Name="InvalidUnfocused"/>
+                    		</VisualStateGroup>
+                    		<VisualStateGroup x:Name="FocusStates">
+                    			<VisualState x:Name="Focused"/>
+                    			<VisualState x:Name="Unfocused"/>
+                    		</VisualStateGroup>
+                    		<VisualStateGroup x:Name="CheckStates">
+                    			<VisualState x:Name="Checked">
+                    				<Storyboard>                    					
+                    					<DoubleAnimation Duration="0" To="3" Storyboard.TargetProperty="(Shape.StrokeThickness)" Storyboard.TargetName="ColorHost" d:IsOptimized="True"/>
+                    				</Storyboard>
+                    			</VisualState>
+                    			<VisualState x:Name="Unchecked"/>
+                    		</VisualStateGroup>
+                    	</VisualStateManager.VisualStateGroups>
+                        <Grid>
+                            <Rectangle x:Name="ColorHost" Margin="3" Stroke="Black"/>
+                            <ContentPresenter />
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="local:ToolRadioButton">
+        <Setter Property="ToolType" Value="Free" />
+        <Setter Property="MinHeight" Value="20" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:ToolRadioButton">
+                    <Border x:Name="border" Background="White" Padding="3">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="Common">
+                                <VisualState x:Name="Normal"/>
+                                <VisualState x:Name="MouseOver" >
+                                	<Storyboard>
+                                		<ColorAnimation Duration="0" To="Black" Storyboard.TargetProperty="(Shape.Stroke).(SolidColorBrush.Color)" Storyboard.TargetName="rectangle" d:IsOptimized="True"/>
+                                	</Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Disabled"/>
+                                <VisualState x:Name="Pressed"/>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="ValidationStates">
+                                <VisualState x:Name="InvalidFocused"/>
+                                <VisualState x:Name="Valid"/>
+                                <VisualState x:Name="InvalidUnfocused"/>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="FocusStates">
+                                <VisualState x:Name="Focused"/>
+                                <VisualState x:Name="Unfocused"/>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="CheckStates">
+                                <VisualState x:Name="Checked" >
+                            		<Storyboard>
+                            			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="SelectedRectangle">
+                            				<DiscreteObjectKeyFrame KeyTime="0">
+                            					<DiscreteObjectKeyFrame.Value>
+                            						<Visibility>Visible</Visibility>
+                            					</DiscreteObjectKeyFrame.Value>
+                            				</DiscreteObjectKeyFrame>
+                            			</ObjectAnimationUsingKeyFrames>
+                            		</Storyboard>
+                            	</VisualState>
+                                <VisualState x:Name="Unchecked"/>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Grid>                        	
+                        	<Rectangle x:Name="rectangle" Stroke="Transparent" >
+                        		<Rectangle.Fill>
+                        			<RadialGradientBrush>
+                        				<GradientStop Color="#FFBCB6B6" Offset="1"/>
+                        				<GradientStop Color="White"/>
+                        			</RadialGradientBrush>
+                        		</Rectangle.Fill>
+                        	</Rectangle>
+                        	<Rectangle x:Name="SelectedRectangle" Fill="Black" Width="5" Height="5" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,-3,-3" Visibility="Collapsed" />
+                            <ContentPresenter Margin="3" />
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
